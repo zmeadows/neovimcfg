@@ -10,7 +10,7 @@ if [[ $(git status -s) ]]; then
     exit 0
 fi
 
-if [[ `git status --porcelain` ]]; then
+if [[ -z `git status --porcelain` ]]; then
     git remote update
     echo "Updating neovim cfg repo..."
     git pull
