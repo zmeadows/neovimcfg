@@ -8,9 +8,7 @@ if [[ $(git status -s) ]]; then
     echo "You have un-commited changes to neovim cfg, fix it!"
     echo "You have un-commited changes to neovim cfg, fix it!"
     exit 0
-fi
-
-if [[ -z `git status --porcelain` ]]; then
+else
     git remote update
     echo "Updating neovim cfg repo..."
     git pull
