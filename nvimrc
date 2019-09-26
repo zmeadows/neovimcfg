@@ -1,5 +1,15 @@
 let hostname = substitute(system('hostname'), '\n', '', '')
 
+if hostname == "DESKTOP-TQVVGEB"
+    let hostname = "windows_desktop"
+elseif (hostname == "um3") || (hostname == "um2") || (hostname == "um1")
+    let hostname = "net3"
+elseif hostname == "zac-macook"
+    let hostname = "macbook"
+elseif hostname == "somnianode"
+    let hostname = "linux_desktop"
+endif
+
 call plug#begin('~/.vim/plugged')
 
 """"""""""""""""""""""
