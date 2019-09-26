@@ -1,5 +1,6 @@
 #!/bin/sh
 
+OLDDIR=$(pwd)
 cd $NEOVIM_CFG_REPO
 git remote update
 
@@ -9,7 +10,7 @@ REMOTE=$(git rev-parse "$UPSTREAM")
 BASE=$(git merge-base @ "$UPSTREAM")
 
 if [ $LOCAL = $REMOTE ]; then
-    exit
+    :
 elif [ $LOCAL = $BASE ]; then
     echo "Updating neovim cfg repo..."
     git pull
@@ -23,3 +24,5 @@ else
     echo "WARNING: neovim cfg repo diverged from master! Fix it!"
     echo "WARNING: neovim cfg repo diverged from master! Fix it!"
 fi
+
+cd $OLDDIR
