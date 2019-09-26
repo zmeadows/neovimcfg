@@ -9,11 +9,17 @@ REMOTE=$(git rev-parse "$UPSTREAM")
 BASE=$(git merge-base @ "$UPSTREAM")
 
 if [ $LOCAL = $REMOTE ]; then
-    echo "Up-to-date"
-elif [ $LOCAL = $BASE ]; then
-    echo "Need to pull"
+    exit
+if [ $LOCAL = $BASE ]; then
+    echo "Updating neovim cfg repo..."
+    git pull
+    echo "Finished."
 elif [ $REMOTE = $BASE ]; then
-    echo "Need to push"
+    echo "Un-pushed changes to neovim cfg are present, push them!"
+    echo "Un-pushed changes to neovim cfg are present, push them!"
+    echo "Un-pushed changes to neovim cfg are present, push them!"
 else
-    echo "Diverged"
+    echo "WARNING: neovim cfg repo diverged from master! Fix it!"
+    echo "WARNING: neovim cfg repo diverged from master! Fix it!"
+    echo "WARNING: neovim cfg repo diverged from master! Fix it!"
 fi
