@@ -2,27 +2,19 @@
 
 OLDDIR=$(pwd)
 cd $NEOVIM_CFG_REPO
-git remote update
 
-UPSTREAM=${1:-'@{u}'}
-LOCAL=$(git rev-parse @)
-REMOTE=$(git rev-parse "$UPSTREAM")
-BASE=$(git merge-base @ "$UPSTREAM")
+if [[ $(git status -s) ]]; then
+    echo "You have un-commited changes to neovim cfg, fix it!"
+    echo "You have un-commited changes to neovim cfg, fix it!"
+    echo "You have un-commited changes to neovim cfg, fix it!"
+    exit 0
+fi
 
-if [ $LOCAL = $REMOTE ]; then
-    :
-elif [ $LOCAL = $BASE ]; then
+if [[ `git status --porcelain` ]]; then
+    git remote update
     echo "Updating neovim cfg repo..."
     git pull
     echo "Finished."
-elif [ $REMOTE = $BASE ]; then
-    echo "Un-pushed changes to neovim cfg are present, push them!"
-    echo "Un-pushed changes to neovim cfg are present, push them!"
-    echo "Un-pushed changes to neovim cfg are present, push them!"
-else
-    echo "WARNING: neovim cfg repo diverged from master! Fix it!"
-    echo "WARNING: neovim cfg repo diverged from master! Fix it!"
-    echo "WARNING: neovim cfg repo diverged from master! Fix it!"
 fi
 
 cd $OLDDIR
