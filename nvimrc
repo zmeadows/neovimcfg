@@ -1,5 +1,7 @@
 let hostname = substitute(system('hostname'), '\n', '', '')
 
+" test
+
 if hostname == "DESKTOP-TQVVGEB"
     let hostname = "windows_desktop"
 elseif (hostname == "um3") || (hostname == "um2") || (hostname == "um1")
