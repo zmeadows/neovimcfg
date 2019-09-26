@@ -10,7 +10,7 @@ BASE=$(git merge-base @ "$UPSTREAM")
 
 if [ $LOCAL = $REMOTE ]; then
     exit
-if [ $LOCAL = $BASE ]; then
+elif [ $LOCAL = $BASE ]; then
     echo "Updating neovim cfg repo..."
     git pull
     echo "Finished."
