@@ -75,6 +75,7 @@ let g:fzf_command_prefix = 'Fzf'
 let g:fzf_layout = { 'window': '20split enew' }
 nnoremap <leader>f :FzfFiles<CR>
 nnoremap <leader>F :FzfBuffers<CR>
+nnoremap <leader>t :FzfTags<CR>
 
 Plug 'mhinz/vim-grepper'
 set grepprg=rg\ --vimgrep
@@ -246,3 +247,6 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
+
+" fix weird color of first line in quickfix window
+hi QuickFixLine cterm=None ctermbg=256 guibg=None
