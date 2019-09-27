@@ -46,6 +46,7 @@ Plug 'markonm/traces.vim' " search/replace preview
 Plug 'coderifous/textobj-word-column.vim' " targets for editing columns
 Plug 'wellle/targets.vim' " useful additional targets
 Plug 'tpope/vim-fugitive' " git integration
+Plug 'airblade/vim-gitgutter' " display git diff in gutter
 Plug 'danilo-augusto/vim-afterglow' " color scheme
 Plug 'tpope/vim-repeat' " adds repeat (.) ability for some plugins
 Plug 'ntpeters/vim-better-whitespace' " for stripping trailing whitespace
@@ -76,6 +77,22 @@ let g:fzf_layout = { 'window': '20split enew' }
 nnoremap <leader>f :FzfFiles<CR>
 nnoremap <leader>F :FzfBuffers<CR>
 nnoremap <leader>t :FzfTags<CR>
+
+" Customize fzf colors to match the color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 Plug 'mhinz/vim-grepper'
 set grepprg=rg\ --vimgrep
