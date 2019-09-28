@@ -35,6 +35,7 @@ set lazyredraw
 set showmatch
 set cinoptions=l1 " indent brackets properly within switch/case expression in C++
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
+set hidden
 
 au FileType qf setlocal nonumber colorcolumn=
 
@@ -97,6 +98,7 @@ let g:fzf_colors =
 Plug 'mhinz/vim-grepper'
 set grepprg=rg\ --vimgrep
 nnoremap <leader>g :Grepper<CR>
+nnoremap <leader>G :Grepper -cword -noprompt<CR>:cfdo %s/<C-R><C-W>/
 
 Plug 'skywind3000/asyncrun.vim'
 nnoremap <leader><Space> :call asyncrun#quickfix_toggle(12)<cr>
