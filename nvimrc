@@ -46,8 +46,6 @@ au FileType qf setlocal nonumber colorcolumn=
 Plug 'markonm/traces.vim' " search/replace preview
 Plug 'coderifous/textobj-word-column.vim' " targets for editing columns
 Plug 'wellle/targets.vim' " useful additional targets
-Plug 'tpope/vim-fugitive' " git integration
-Plug 'airblade/vim-gitgutter' " display git diff in gutter
 Plug 'danilo-augusto/vim-afterglow' " color scheme
 Plug 'tpope/vim-repeat' " adds repeat (.) ability for some plugins
 Plug 'ntpeters/vim-better-whitespace' " for stripping trailing whitespace
@@ -63,7 +61,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " use ripgrep for file-finding with fzf
-if hostname == "DESKTOP-TQVVGEB"
+if hostname == "windows_desktop"
     let $FZF_DEFAULT_COMMAND = 'C:\tools\ripgrep-0.8.1-x86_64-pc-windows-msvc\rg.exe --files --hidden --follow --glob "!.git/*"'
 else
     let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
