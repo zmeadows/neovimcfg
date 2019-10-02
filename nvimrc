@@ -237,6 +237,9 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+nnoremap <leader>V :vsplit<CR>
+nnoremap <leader>S :split<CR>
+
 """""""""""""""""""
 ""\ STATUS LINE \""
 """""""""""""""""""
