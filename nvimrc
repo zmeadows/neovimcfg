@@ -124,6 +124,7 @@ let g:clang_format#style_options = {
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "BreakBeforeBraces" : "Stroustrup",
             \ "ColumnLimit" : "90" }
+let g:clang_format#auto_format=1
 
 au FileType cpp setlocal cindent cino=j1,(0,ws,Ws
 
@@ -239,6 +240,7 @@ nnoremap <A-l> <C-w>l
 
 nnoremap <leader>V :vsplit<CR>
 nnoremap <leader>S :split<CR>
+nnoremap <leader>C :e ~/.config/nvim/init.vim<CR>
 
 """""""""""""""""""
 ""\ STATUS LINE \""
