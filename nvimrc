@@ -49,6 +49,11 @@ Plug 'wellle/targets.vim' " useful additional targets
 Plug 'danilo-augusto/vim-afterglow' " color scheme
 Plug 'tpope/vim-repeat' " adds repeat (.) ability for some plugins
 Plug 'ntpeters/vim-better-whitespace' " for stripping trailing whitespace
+Plug 'morhetz/gruvbox' " color theme
+Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
 
 Plug 'ajh17/VimCompletesMe' " simple/quick tab completion
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -123,7 +128,9 @@ let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -4,
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "BreakBeforeBraces" : "Stroustrup",
-            \ "ColumnLimit" : "90" }
+            \ "ColumnLimit" : "90",
+            \ "DerivePointerAlignment" : "false",
+            \ "PointerAlignment" : "Left" }
 let g:clang_format#auto_format=1
 
 au FileType cpp setlocal cindent cino=j1,(0,ws,Ws
@@ -163,7 +170,8 @@ call plug#end()
 set t_Co=256
 set termguicolors
 set background=dark
-color afterglow
+color gruvbox
+set background=dark
 set guifont=Fixedsys\ Excelsior\ 3.01\ Regular\ 12
 
 set guioptions-=r
@@ -246,29 +254,29 @@ nnoremap <leader>C :e ~/.config/nvim/init.vim<CR>
 ""\ STATUS LINE \""
 """""""""""""""""""
 
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
+" function! GitBranch()
+"   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+" endfunction
 "
-set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\
+" function! StatuslineGit()
+"   let l:branchname = GitBranch()
+"   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+" endfunction
+" "
+" set statusline=
+" set statusline+=%#PmenuSel#
+" set statusline+=%{StatuslineGit()}
+" set statusline+=%#LineNr#
+" set statusline+=\ %f
+" set statusline+=%m\
+" set statusline+=%=
+" set statusline+=%#CursorColumn#
+" set statusline+=\ %y
+" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+" set statusline+=\[%{&fileformat}\]
+" set statusline+=\ %p%%
+" set statusline+=\ %l:%c
+" set statusline+=\
 
 " fix weird color of first line in quickfix window
 hi QuickFixLine cterm=None ctermbg=256 guibg=None
